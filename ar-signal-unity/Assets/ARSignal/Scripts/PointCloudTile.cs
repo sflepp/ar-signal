@@ -26,9 +26,9 @@ public class PointCloudTile : MonoBehaviour {
 			existingPoint.color = point.color;
 
 			if (!points.ContainsKey (key)) {
-				existingPoint.position.x += (point.position.x - existingPoint.position.x) / (float)existingPoint.amount;
-				existingPoint.position.y += (point.position.y - existingPoint.position.y) / (float)existingPoint.amount;
-				existingPoint.position.z += (point.position.z - existingPoint.position.z) / (float)existingPoint.amount;
+				existingPoint.position.x += (point.position.x - existingPoint.position.x) / existingPoint.amount;
+				existingPoint.position.y += (point.position.y - existingPoint.position.y) / existingPoint.amount;
+				existingPoint.position.z += (point.position.z - existingPoint.position.z) / existingPoint.amount;
 			}
 
 		} else {
