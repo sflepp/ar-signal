@@ -100,28 +100,30 @@ public class PointCloudParticles : NetworkBehaviour
                 {
                     var identifier = arPointCloud.identifiers.Value[i];
                     var position = arPointCloud.positions.Value[i];
-                    var confidence = arPointCloud.confidenceValues.Value[i];
                     
-                    if (confidence > 0.75)
-                    {
+                    
+                   
                         PointCloudData.Add(identifier, position);
-                    }
+                   
                 }
             }
         }
 
         foreach (var arPointCloud in e.updated)
         {
+            Debug.Log("some updated");
             if (arPointCloud.identifiers.HasValue && arPointCloud.positions.HasValue)
             {
+                Debug.Log("has value");
                 for (int i = 0; i < arPointCloud.identifiers.Value.Length; i++)
                 {
                     var identifier = arPointCloud.identifiers.Value[i];
+                    Debug.Log("identifier " + identifier);
                     var position = arPointCloud.positions.Value[i];
-                    var confidence = arPointCloud.confidenceValues.Value[i];
+                    Debug.Log("position " + position);
+                   
                     
-                    if (confidence > 0.75)
-                    {
+                   
                         if (PointCloudData.ContainsKey(identifier))
                         {
                             PointCloudData[identifier] = position;
@@ -131,7 +133,7 @@ public class PointCloudParticles : NetworkBehaviour
                             PointCloudData.Add(identifier, position);
                         }
                         
-                    }
+                    
                 }
             }
         } 
