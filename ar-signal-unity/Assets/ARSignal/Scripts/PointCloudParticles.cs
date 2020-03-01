@@ -31,7 +31,7 @@ public class PointCloudParticles : NetworkBehaviour
     void Start()
     {
         pointCloudManager = GetComponent<ARPointCloudManager>();
-        pointCloudManager.pointCloudsChanged += ARFrameUpdated;
+        pointCloudManager.pointCloudsChanged += PointCloudsChangedLocal;
 
         for (int i = 0; i < particles.Length; i++)
         {
@@ -71,10 +71,10 @@ public class PointCloudParticles : NetworkBehaviour
             {
                 particles[i].position = point.Value;
                 particles[i].startColor = new Color32(255, 0, 0, 255);
-                particles[i].startSize = 0.025f;
+                particles[i].startSize = 0.005f;
                 i++;
             }
-            
+
             Debug.Log("Amount of points: " + i);
 
             _pointsUpdated = true;
@@ -86,11 +86,11 @@ public class PointCloudParticles : NetworkBehaviour
         }
     }
 
-    public void ARFrameUpdated(ARPointCloudChangedEventArgs e)
+    public void PointCloudsChangedLocal(ARPointCloudChangedEventArgs e)
     {
-        
-        Debug.Log("e.added.Count = " + e.added.Count + " e.updated.Count = " + e.updated.Count + " e.removed.Count = " + e.removed.Count);
-        
+        Debug.Log("e.added.Count = " + e.added.Count + " e.updated.Count = " + e.updated.Count + " e.removed.Count = " +
+                  e.removed.Count);
+
         foreach (var arPointCloud in e.added)
         {
             if (arPointCloud.identifiers.HasValue && arPointCloud.positions.HasValue &&
@@ -101,42 +101,31 @@ public class PointCloudParticles : NetworkBehaviour
                     var identifier = arPointCloud.identifiers.Value[i];
                     var position = arPointCloud.positions.Value[i];
                     
-                    
-                   
-                        PointCloudData.Add(identifier, position);
-                   
+                    PointCloudData.Add(identifier, position);
                 }
             }
         }
 
         foreach (var arPointCloud in e.updated)
         {
-            Debug.Log("some updated");
             if (arPointCloud.identifiers.HasValue && arPointCloud.positions.HasValue)
             {
-                Debug.Log("has value");
                 for (int i = 0; i < arPointCloud.identifiers.Value.Length; i++)
                 {
                     var identifier = arPointCloud.identifiers.Value[i];
-                    Debug.Log("identifier " + identifier);
                     var position = arPointCloud.positions.Value[i];
-                    Debug.Log("position " + position);
-                   
                     
-                   
-                        if (PointCloudData.ContainsKey(identifier))
-                        {
-                            PointCloudData[identifier] = position;
-                        }
-                        else
-                        {
-                            PointCloudData.Add(identifier, position);
-                        }
-                        
-                    
+                    if (PointCloudData.ContainsKey(identifier))
+                    {
+                        PointCloudData[identifier] = position;
+                    }
+                    else
+                    {
+                        PointCloudData.Add(identifier, position);
+                    }
                 }
             }
-        } 
+        }
 
         foreach (var arPointCloud in e.removed)
         {
