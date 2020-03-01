@@ -4978,7 +4978,6 @@ GameObject:
   - component: {fileID: 7674484815751947456}
   - component: {fileID: 7674484815751947459}
   - component: {fileID: 7674484815751947458}
-  - component: {fileID: 7674484815751947464}
   - component: {fileID: 223146188}
   m_Layer: 0
   m_Name: AR Session Origin Particles
@@ -5042,7 +5041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
-  serverOnly: 0
+  serverOnly: 1
   m_AssetId: 
 --- !u!114 &7674484815751947459
 MonoBehaviour:
@@ -5083,26 +5082,6 @@ MonoBehaviour:
   localScaleSensitivity: 0.01
   compressRotation: 1
   target: {fileID: 7674484815751947517}
---- !u!114 &7674484815751947464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7674484815751947511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 734b48bea0b204338958ee3d885e11f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 0
-  localPositionSensitivity: 0.01
-  localRotationSensitivity: 0.01
-  localScaleSensitivity: 0.01
-  compressRotation: 1
-  target: {fileID: 0}
 --- !u!114 &223146188
 MonoBehaviour:
   m_ObjectHideFlags: 0

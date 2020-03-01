@@ -194,7 +194,7 @@ PrefabInstance:
     - target: {fileID: 7674484815751947456, guid: 808d43b6751cc194c8d5752f6f700eeb,
         type: 3}
       propertyPath: serverOnly
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7674484815751947511, guid: 808d43b6751cc194c8d5752f6f700eeb,
         type: 3}
@@ -350,10 +350,10 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   transport: {fileID: 1968924421}
-  networkAddress: 192.168.1.115
+  networkAddress: 192.168.1.103
   maxConnections: 4
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 5075528875289742095, guid: e5905ffa27de84009b346b49d518ba03,
+  playerPrefab: {fileID: 6446843366566598042, guid: 9d402f09cce3ffe4b8205482278dc137,
     type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
