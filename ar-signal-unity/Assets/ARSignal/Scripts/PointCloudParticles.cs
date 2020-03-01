@@ -88,6 +88,8 @@ public class PointCloudParticles : NetworkBehaviour
 
     public void ARFrameUpdated(ARPointCloudChangedEventArgs e)
     {
+        
+        Debug.Log("e.added.Count = " + e.added.Count + " e.updated.Count = " + e.updated.Count + " e.removed.Count = " + e.removed.Count);
         foreach (var arPointCloud in e.added)
         {
             if (arPointCloud.identifiers.HasValue && arPointCloud.positions.HasValue &&

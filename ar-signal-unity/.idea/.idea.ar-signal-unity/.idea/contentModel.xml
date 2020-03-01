@@ -9,15 +9,10 @@
       <e p="Assets" t="Include">
         <e p="ARSignal" t="Include">
           <e p="Scripts" t="Include">
-            <e p="Point.cs" t="Include" />
-            <e p="PointCloud.cs" t="Include" />
-            <e p="PointCloudMesh.cs" t="Include" />
+            <e p="Autoconnect.cs" t="Include" />
             <e p="PointCloudParticles.cs" t="Include" />
-            <e p="PointCloudTile.cs" t="Include" />
-            <e p="TileIndex.cs" t="Include" />
           </e>
         </e>
-        <e p="Autoconnect.cs" t="Include" />
         <e p="Mirror" t="Include">
           <e p="Authenticators" t="Include">
             <e p="BasicAuthenticator.cs" t="Include" />
